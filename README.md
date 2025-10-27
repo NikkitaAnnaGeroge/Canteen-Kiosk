@@ -1,28 +1,53 @@
-🚀 Features
-🔐 Admin Authentication
+# 🧾 AdminController — Canteen Management System
 
-Displays a login dialog for administrators.
+The **AdminController** is the central controller responsible for managing all **administrator operations** within the Canteen Management System. It serves as the bridge between the backend services and the user interface, handling admin authentication, menu management, and order tracking.
 
-Authenticates credentials through the AdminService.
+---
 
-Executes secure admin actions only after successful login.
+## 🚀 Features
 
-🍽 Menu Management
+### 🔐 Admin Authentication
 
-View all menu items.
+* Displays a secure login dialog for administrators.
+* Verifies credentials through the `AdminService`.
+* Grants access to admin features only upon successful authentication.
 
-Add, update, or delete menu items.
+### 🍽 Menu Management
 
-Automatically refreshes the UI after each menu modification.
+* Allows viewing, adding, updating, and deleting menu items.
+* Automatically refreshes the displayed menu after changes.
+* Validates inputs such as name, price, and category before submission.
 
-Validates input before creating or editing a menu item.
+### 📦 Order Management
 
-📦 Order Management
+* Enables viewing of all customer orders.
+* Retrieves detailed information for each order.
+* Updates order statuses (e.g., Pending → Completed).
+* Refreshes the order list automatically after updates.
 
-View all customer orders.
+### 🧠 Validation and Error Handling
 
-Retrieve specific order details.
+* Validates menu input fields before adding or updating.
+* Prevents invalid or empty data entries.
+* Displays clear success or error messages using dialogs.
 
-Update the status of an order (e.g., Pending → Completed).
+---
 
-Automatically refreshes the order list upon status update.
+## 🧩 Responsibilities
+
+The **AdminController** acts as a **communication bridge** between the following layers:
+
+* **Model Layer:** Data classes like `MenuItem` and `Order`.
+* **Service Layer:** Business logic handled by `MenuService`, `OrderService`, and `AdminService`.
+* **View Layer:** User interface components such as `AdminView` and `AdminLoginDialog`.
+
+---
+
+## 🧱 Design Pattern
+
+This controller follows the **Model–View–Controller (MVC)** architecture:
+
+* **Model:** Represents application data (`MenuItem`, `Order`).
+* **View:** Manages the graphical interface (`AdminView`, `AdminLoginDialog`).
+* **Controller:** Handles user interactions and coordinates updates (`AdminController`).
+
